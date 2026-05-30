@@ -1,42 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1 />"
-        <title>Axton - home</title>
-    </head>
-    <body>
-        <header>
-            <h1>Hey, I'm Axton</h1>
-            <p>I'm 21 years old and I decided to take on the challenge of teaching myself to code. It feels quite ambitious by my standards but one day I would really like to become a programmer, developer, or just something with in the tech industry. My dream is to work in the VR space by the end of it.</p>
-        </header>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Axton's coding portfolio for projects, experiments, and learning notes.">
+    <title>Axton | Coding Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Axton portfolio home">
+        <span class="brand-mark">A</span>
+        <span>Axton</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#upload">Upload</a>
+        <a href="#notes">Notes</a>
+      </nav>
+    </header>
 
-        <main>
-            <section id="about">
-                <h2>About Me</h2>
-                <p>I'm currently working through a structured plan I created with the help of ChatGPT. I am starting off by focusing on the fundamentals (HTML/CSS, JavaScript, React, Node/Express, SQL, Python for scripting, GitHub, and data structures & algorithms) and using the skills I gain to create smaller projects until I feel ready to advance.  </p>
-            </section>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img src="assets/coding-workspace.svg" alt="Illustrated coding workspace with a laptop and notebook.">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Learning in public</p>
+          <h1 id="hero-title">Axton's coding portfolio</h1>
+          <p class="hero-copy">
+            A simple place to collect projects, screenshots, notes, and small wins while learning to code.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#upload">Add a project</a>
+            <a class="button secondary" href="#projects">View work</a>
+          </div>
+        </div>
+      </section>
 
-            <section id="links">
-                <h2>Links To Beloved Places Of The Internet</h2>
-                <u1>
-                    <li><a href="https://www.youtube.com/@kcchiefsproductions8687/featured" target="_blank">My Old YouTube Account</a></li>
-                    <li><a href="https://www.meta.com/quest/quest-3/buy-now/" target="_blank"> My Favorite Personally Owned Device</a></li>
-                    <li><a href="https://www.chiefs.com" target="_blank">The Best Franchise To Ever Exist </a></li>
-                </u1>
-            </section>
+      <section class="intro-section" aria-label="Portfolio overview">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2>Built for progress, not perfection.</h2>
+        </div>
+        <p>
+          This portfolio keeps the focus on what Axton is building: beginner projects, experiments, notes, and proof of steady practice. It avoids personal details and leaves room to grow as the work gets stronger.
+        </p>
+      </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:axtonmorgan@gmail.com">axtonmorgan@gmail.com</a></p>
-            </section>
-        </main>
+      <section class="toolbelt" aria-label="Current coding focus">
+        <div class="tool-item">
+          <span>01</span>
+          <strong>Frontend basics</strong>
+          <p>HTML, CSS, JavaScript, layout, accessibility, and clean interfaces.</p>
+        </div>
+        <div class="tool-item">
+          <span>02</span>
+          <strong>Project habit</strong>
+          <p>Save screenshots, notes, source files, and what changed along the way.</p>
+        </div>
+        <div class="tool-item">
+          <span>03</span>
+          <strong>Next steps</strong>
+          <p>Turn small builds into clear case studies with links and takeaways.</p>
+        </div>
+      </section>
 
-        <footer>
-            <small>© 2025 Axton M.</small>
-        </footer>
-    </body>
-</htmL>
+      <section id="projects" class="projects-section" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Portfolio</p>
+            <h2 id="projects-title">Projects and uploads</h2>
+          </div>
+          <div class="heading-actions">
+            <button class="icon-button" id="exportData" type="button" aria-label="Export saved projects" title="Export saved projects">
+              <span aria-hidden="true">v</span>
+            </button>
+            <label class="icon-button import-control" aria-label="Import saved projects" title="Import saved projects">
+              <span aria-hidden="true">^</span>
+              <input id="importData" type="file" accept="application/json">
+            </label>
+          </div>
+        </div>
+        <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+        <p class="empty-state" id="emptyState" hidden>No uploads yet. Add your first project below.</p>
+      </section>
 
+      <section id="upload" class="upload-section" aria-labelledby="upload-title">
+        <div class="upload-copy">
+          <p class="section-kicker">Add work</p>
+          <h2 id="upload-title">Upload something you made</h2>
+          <p>
+            Add a screenshot, source file, PDF, or notes. Saved items stay in this browser so you can keep building your portfolio over time.
+          </p>
+        </div>
 
+        <form class="upload-form" id="projectForm">
+          <label>
+            Project name
+            <input id="projectName" name="projectName" type="text" placeholder="JavaScript calculator" required>
+          </label>
+          <label>
+            What did you practice?
+            <input id="projectFocus" name="projectFocus" type="text" placeholder="DOM events, CSS grid, functions">
+          </label>
+          <label>
+            Short description
+            <textarea id="projectDescription" name="projectDescription" rows="4" placeholder="What it does, what you learned, or what you want to improve next."></textarea>
+          </label>
+          <div class="form-row">
+            <label>
+              Project link
+              <input id="projectLink" name="projectLink" type="url" placeholder="https://...">
+            </label>
+            <label>
+              Status
+              <select id="projectStatus" name="projectStatus">
+                <option value="Learning">Learning</option>
+                <option value="In progress">In progress</option>
+                <option value="Finished">Finished</option>
+              </select>
+            </label>
+          </div>
+          <label class="dropzone" for="projectFile">
+            <span>Choose a file</span>
+            <strong id="fileName">Screenshot, code file, PDF, or zip</strong>
+            <input id="projectFile" name="projectFile" type="file" accept="image/*,.html,.css,.js,.json,.txt,.md,.pdf,.zip">
+          </label>
+          <div class="form-actions">
+            <button class="button primary" type="submit">Save project</button>
+            <button class="button ghost" id="clearProjects" type="button">Clear saved projects</button>
+          </div>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+      </section>
 
+      <section id="notes" class="notes-section" aria-labelledby="notes-title">
+        <div>
+          <p class="section-kicker">Learning notes</p>
+          <h2 id="notes-title">What belongs here</h2>
+        </div>
+        <ul>
+          <li>Small finished projects and experiments.</li>
+          <li>Screenshots that show what changed over time.</li>
+          <li>Short notes about bugs fixed, tools used, and what to try next.</li>
+          <li>Links to deployed demos, GitHub repos, or class assignments when ready.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>Axton | Coding portfolio</p>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <template id="projectTemplate">
+      <article class="project-card">
+        <div class="project-media"></div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="status-pill"></span>
+            <time></time>
+          </div>
+          <h3></h3>
+          <p class="project-focus"></p>
+          <p class="project-description"></p>
+          <div class="project-links"></div>
+          <button class="delete-button" type="button">Remove</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
